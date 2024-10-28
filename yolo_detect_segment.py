@@ -41,16 +41,23 @@ while cap.isOpened():
         # Process detection boxes
         boxes = result.boxes
         if boxes is not None:
+            max_box = None
+            area = 0
             for box in boxes:
                 # Get box coordinates and class ID
                 x1, y1, x2, y2 = map(int, box.xyxy[0].cpu().numpy())
                 class_id = int(box.cls[0].cpu().numpy())
                 confidence = box.conf[0].cpu().numpy()
 
-                # Draw the bounding box and label on the frame
-                label = f'{model.names[class_id]} {confidence:.2f}'
-                cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
-                cv2.putText(frame, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
+                if((x2-x1)*(y2-y1) > area) :
+                    area = (x2-x1)*(y2-y1)
+                    max_box = (x1, y1, x2, y2, class_id, confidence)
+
+            # Draw the bounding box for the largest box
+            x1, y1, x2, y2, class_id, confidence = max_box
+            label = f'{model.names[class_id]} {confidence:.2f}'
+            cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+            cv2.putText(frame, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
 
     # Display the frame
     cv2.imshow('YOLOv8 Segmentation and Object Detection', frame)
