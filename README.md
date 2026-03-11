@@ -7,10 +7,7 @@ You can also go through the documentation [YOLOv8](https://docs.ultralytics.com/
 - opencv-python
 - numpy
   
-command to install the requirements:
-```bash
-pip install <requirement>
-```
+
 # File description
 train_model.py : We train a pre-trained model on our custom dataset and save it. To run this file, you would have to download the datasets folder.
 
