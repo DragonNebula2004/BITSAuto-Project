@@ -13,17 +13,11 @@ train_model.py : We fine tune a pre-trained model on our custom dataset and save
 
 yolo_segment.py : Implemention of our model.
 
-yolo_detect_segment.py : In this file, apart from segmentation we draw bounding boxes around the road in an attempt to find its midpoint.
+yolo_detect_segment.py : Segmentation + Bounding Boxes around the road in an attempt to find its midpoint.
 
-To run the latter 2 files, you would have to download the video, IMG_3010.mp4. 
+To run the latter 2 files download the video, IMG_3010.mp4. 
 
 Google drive link for the downloads : [dataset](https://drive.google.com/drive/folders/1_MA48VKG8hAU8YRUScmKIu83-DeEHZZM?usp=drive_link).
-
-
-# Future Work
-Marking the left and right boundaries of the road.  
-Dividing the road into 2 lanes.  
-Exploring other models like SAM etc.  
 
 
 
