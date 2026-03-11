@@ -9,7 +9,7 @@ You can also go through the documentation [YOLOv8](https://docs.ultralytics.com/
   
 
 # File description
-train_model.py : We train a pre-trained model on our custom dataset and save it. To run this file, you would have to download the datasets folder.
+train_model.py : We fine tune a pre-trained model on our custom dataset and save it. To run this file, you would have to download the datasets folder.
 
 yolo_segment.py : Implemention of our model.
 
